@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import HelloWorld from './components/HelloWorld'
 import WeatherSearch from './components/WeatherSearch'
+import MarsWeather from './components/MarsWeather'
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <>
         <HelloWorld />
         <WeatherSearch />
+        <MarsWeather />
       </>
     )
   }

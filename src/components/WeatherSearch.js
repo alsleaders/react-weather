@@ -6,7 +6,9 @@ const beginningOfWeatherUrl =
 class WeatherSearch extends Component {
   state = {
     value: '',
-    weather: {}
+    weather: {},
+    city: [],
+    temp: ''
   }
 
   handleChange = event => {
@@ -27,7 +29,7 @@ class WeatherSearch extends Component {
     fetch(
       `${beginningOfWeatherUrl}${
         this.state.value
-      }&APPID=017ef3e4bf1e11d8cf9397e2e73fd25a`
+      }&APPID=017ef3e4bf1e11d8cf9397e2e73fd25a&units=metric`
     )
       .then(response => {
         console.log(response)
@@ -37,6 +39,20 @@ class WeatherSearch extends Component {
       .then(city => {
         console.log({ city })
         console.log('is something happening?')
+        console.log(city.weather)
+        console.log(city.weather[0])
+        console.log(city.weather[0].description)
+        this.setState({
+          weather: city.weather[0],
+          city: city.name,
+          temp: city.main.temp
+        })
+        console.log(this.state.weather)
+        console.log(this.state.city)
+        console.log(this.state.temp)
+      })
+      .catch(error => {
+        alert('Please check your entry and try your search again!')
       })
   }
   render() {
@@ -50,6 +66,10 @@ class WeatherSearch extends Component {
           onChange={this.updateCity}
         />
         <button onClick={this.goGetTheWeather}>Submit</button>
+        <p>
+          The weather in {this.state.city} is {this.state.weather.description}{' '}
+          and it is {this.state.temp} degrees Celsius.
+        </p>
       </div>
     )
   }

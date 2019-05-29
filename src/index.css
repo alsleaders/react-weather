@@ -12,3 +12,9 @@ body {
   background: lightskyblue;
   text-align: center;
 }
+
+h1 {
+  height: 12rem;
+  opacity: 0.85;
+  background-image: url('./images/raincloudwithlightning.png');
+}
