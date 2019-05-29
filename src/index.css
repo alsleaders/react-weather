@@ -4,11 +4,13 @@
 
 html {
   height: 100%;
+  background: black;
 }
 
 body {
-  margin: 0;
-  min-height: 100%;
+  margin: 2rem;
+  border-radius: 1rem;
+  min-height: 90%;
   background: lightskyblue;
   text-align: center;
 }
@@ -17,4 +19,9 @@ h1 {
   height: 12rem;
   opacity: 0.85;
   background-image: url('./images/raincloudwithlightning.png');
+}
+
+section {
+  background: peru;
+  text-align: center;
 }
